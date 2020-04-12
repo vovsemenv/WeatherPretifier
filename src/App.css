@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+body{
+  background-color: #F0F1F5;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Top-Wrapped{
+  background-color: white;
+  height: 42px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Top-Bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Logo{
+  color: #66CC99;
+}
+.Today,.Now{
+  background-color: white;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.Today-Main,.Now-Main{
+width: 100%;
+padding: 15px;
+display: flex;
+justify-content: space-around;
+}
+.Today-Text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between
+}
+.Today-Text-1{
+  width: 205px;
+}
+
+.Today-Text-2{
+  width: 350px;
+}
+.Today-Text>div{
+  display: flex;
+  flex-direction: column;
+}
+.Now-Logo{
+  width: 150px;
+}
+.Now{
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 290px;
+}
+.Today-Logo{
+  width: 200px;
+}
+.Today{
+  height: 290px;
+}
+.Little-Logo{
+  width: 92px;
+}
+.Little-T{
+  text-align: center;
+}
+.Block:hover{
+  background-color: #F0F1F5;
+}
+.City-Text:hover{
+  color: blue;
+
+}
+.blur{
+  filter: blur(8px);
+}
+.citypick{
+  width:500px;
+  height: 500px;
+  background-color: black;
+  color:white;
+  position: absolute;
+  top:0;
+  
+}
+@media all and (max-width:1200px){
+  .Little{
+    font-size: 22px;
+  }
+}
+@media all and (max-width:990px){
+  .Now-Logo{
+    width: 90px;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@media all and (max-width:770px){
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media all and (max-width:570px){
+  
+}
+.map-wrapp{
+  position: absolute;
+  top:50px;
+  display: flex;
+  left: 0;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+#map{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityData{
+  display: flex;
+  justify-content: center;
 }
