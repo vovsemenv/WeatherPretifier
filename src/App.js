@@ -7,16 +7,7 @@ import {LittleBlock} from "./Components/LittleBlock"
 import axios from "axios"
 
 
-async function getForecast(lat,lon){
-  let API_TOKEN = "5b11bfc2-2fe6-4c2b-a946-013bcde3707a";
-  let forecastResponse = await axios.get(`https://api.weather.yandex.ru/v1/forecast?lat=${lat}&lon=${lon}&extra=true`,
-  {headers:{
-      "X-Yandex-API-Key":API_TOKEN
-      },
-  
-  });
-  return await forecastResponse.data;
-}
+
 function blur(){
   let blocks = document.querySelectorAll(".Block");
   [...blocks].forEach(element => {
@@ -31,7 +22,8 @@ function reblur(){
 }
 
 function App() {
-  getForecast().then(er=>console.log(er))
+  // getForecast().then(val=> console.log(val));
+  
   let res;
   let coordCook;
   let  CityCook;
@@ -56,6 +48,7 @@ function App() {
   let [cityName,setCity]= useState(CityCook);
   
   function d(){
+    if(document.querySelector("#cityname").value!=""){
         document.cookie = `geo=${document.querySelector("#cityname").data1}`;
         document.cookie = `city=${document.querySelector("#cityname").value}`;
         setCity(document.querySelector("#cityname").value)
@@ -67,8 +60,9 @@ function App() {
             setstate("none");
             reblur()
         
+        }}
         }
-        }
+        
   return (
     <div className="App">
       <TopBar setstate={setstate} City ={cityName} state={state}/>
@@ -95,7 +89,7 @@ function App() {
           
         </div>
         <div className="map-wrapp">
-                <div id="map" style={{width: "600px", height: "400px", display:state }}><div className="cityData"><input id="cityname"/><button onClick={d}>Верно</button></div></div>
+                <div id="map" style={{width: "600px", height: "400px", display:state }}><div className="cityData"><input readOnly id="cityname"/><button onClick={d}>Верно</button></div></div>
         </div>
       </div>
     </div>
