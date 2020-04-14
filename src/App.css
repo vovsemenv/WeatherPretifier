@@ -124,3 +124,11 @@ justify-content: space-around;
   display: flex;
   justify-content: center;
 }
+.Titles-Clothes{
+  text-align: center;
+  
+}
+#cloth{
+  flex-grow: 2;
+  padding-left: 2em;
+}
