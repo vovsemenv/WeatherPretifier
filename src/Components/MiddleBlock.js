@@ -51,7 +51,7 @@ export function MiddleBlockClothes({title,dataClothes}){
             
 
             <div className="Now-Main">
-                <img className="Now-Logo" src="/images/clothes/light_jacket.png" alt=""/>
+                <img className="Now-Logo" src={icon} alt=""/>
                     <div className="Today-Text">
                         <div className="Titles-Clothes">
                             {dataClothes.prediction_clothes}<br/>

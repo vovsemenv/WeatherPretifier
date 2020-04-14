@@ -55,7 +55,7 @@ function prediction_img(temp,wind,prec){
         return clothesDict.soCold;
     }else if(temp<7){
         return clothesDict.medium
-    }else if(prec!=0){
+    }else if(prec==0){
         return clothesDict.sunny
     }else{
         return clothesDict.medium
@@ -68,7 +68,7 @@ function prediction_clothes(temp,wind,prec){
         return "Лучше надеть пуховик";
     }else if(temp<7){
         return "Можно надеть ветровку"
-    }else if(prec!=0){
+    }else if(prec==0){
         return "Можно Надеть футболку"
     }else{
         return "Лучше надеть ветровку"
@@ -80,7 +80,7 @@ function prediction_clothes(temp,wind,prec){
 let clothesDict = {
     soCold:"/images/clothes/snow_jacket.png",
     medium:"/images/clothes/light_jacket.png",
-    sunny:"/images/clothes/t_shirt.png"
+    sunny:"/images/clothes/t-shirt.png"
   }
 function prediction_umbrella(prec){
     if(prec==1|prec==2){

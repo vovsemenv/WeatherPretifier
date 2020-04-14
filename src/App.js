@@ -8,7 +8,7 @@ import axios from "axios"
 
 
 function getMainForecast(lat=0,lon=0,setter){
-  fetch(`http://localhost:9000/forecast?&lat=${lat}&lon=${lon}`,{mode:"no-cors"}).then(val=>{
+  fetch(`/forecast?&lat=${lat}&lon=${lon}`,{mode:"no-cors"}).then(val=>{
     val.json().then(vao=>setter(vao));
   })
 
@@ -90,17 +90,21 @@ function App() {
     return Math.random() * (max - min) + min;
   }
   function d(){
-    
-    if(document.querySelector("#cityname").value!=""){  
-      document.cookie = `geo=${document.querySelector("#cityname").data1}`;
+  
+      
+        document.cookie = `geo=${document.querySelector("#cityname").data1}`;
         document.cookie = `city=${document.querySelector("#cityname").value}`;
         setCity(document.querySelector("#cityname").value)
         setCoords(document.querySelector("#cityname").data1);
+        setloaded(false);
+        // getMainForecast(coords.split(",")[0],coords.split(",")[1],setMainLoadState)
+        setstate("none");
+        reblur()
         if(state=="none"){
             setstate("block"); 
             blur();
         }else{
-            getMainForecast(coords.split(",")[0],coords.split(",")[1],setMainLoadState)
+            
             setstate("none");
             reblur()
         
@@ -108,7 +112,7 @@ function App() {
       
       }
         
-        }
+        
         
         
   return (
@@ -166,7 +170,7 @@ const sampledata  = {
       feels_like:"load"
   },
   predictions:{
-      icon:"/images/clothes/t-shirt.svg",
+      icon:"./images/clothes/t-shirt.svg",
       prediction_clothes:"load",
       prediction_umbrella:"load"
   },
