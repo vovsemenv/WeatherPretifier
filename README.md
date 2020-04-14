@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PrettyWeather(Умный сервис прогноза погоды погоды)
 
-## Available Scripts
+Данный сервис призван помочь пользователю быстро определить погоду в населенном пункте, котором он проживает, и получить рекомендации подходящей одежды.
 
-In the project directory, you can run:
+## Описание проекта
 
-### `npm start`
+## Вы браный уровень сложности
+Для реализации Был выбран уровень сложности "Задача со звездочкой:", что предполагает реализацию взаимодействие со внешним API, получение от пользователя информации о населенном пункте и выбор подходящей одежды под сложившиеся погодные условия
+## Проектирование сервиса
+#### Какой язык программирования и технологии использовать для реализации данного сервиса?
+Для реализации данного проекта использовался полностью JavaScript. Серверная часть реализована с помощьют nodejs и  express, а клиентская с помощью библиотеки React.
+#### Какой будет пользовательский интерфейс (это может быть сайт, десктопное приложение, чат-бот и т.п)?
+Интерфейсом для конченого пользователя является сайт, который позволяет в удобном виде получать информацию о погоде
+#### Опишите формат ответа (текст, аудио файл, изображение), который вернется пользователю со стороны сервера и процесс его генерации.
+Со стороны сервера клиенту возвращается почти пустой html файл и много javascript кода. Когда сайт загружается javascript запрашивает информацию о погоде у Backend части приложения. Получая ответ от сервера он рендрит картинку, которую видит пользователь. Если пользователь меняет город запроса, то процесс повторяется.
+#### Демонстрация работы сервиса
+Видео доступно по клику на изображение
+[![Watch the video](https://i.imgur.com/3wmtwOj.png)](https://youtu.be/DcZ9P6IyXhk)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Шаги работы программы
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Пользователь переходит на сайт чтобы посмотреть погоду. Производится проверка нет ли у него в куки информации о его местоположении, чтобы ему не прошлось его снова вводить. Если Пользователь еще не был на сайте ,то ему показывается окно выбора города для отображения погоды. После того как город выбран с сайта на сервер отравляется GET запрос с координатами населенного пункта. Сервер получает данные о метоположении и формирует запрос с API Яндекс погоды. Яндекс погода возвращает ответ в формате JSON. Сервер получает информацию и извлекает из нее пункты, которые необходимы клиенту и формирует ответ клиенту в котором содержится информация о погоде на необходимые дни и тип подходящей одежды. Клиент получает ответ и начинает отрисовывать полученную информацию в браузере. 
+### Как запустить программу
+Для начала нужно получить Токен для получения информации о погоду от Яндекса(тариф Тестовый). 
+после того как токен получен его необходимо вставить в файл /src/token.js
+` module.exports = "token here" `
+после того как токен вставленн нужно написать команду 
+`npm install`
+затем
+`npm run build`
+после этого запускаем сервер с помощью команды
+`npm run serve`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Сайт будет доступен по адресу `localhos:9000`
