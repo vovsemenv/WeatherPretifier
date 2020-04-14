@@ -3,7 +3,9 @@ const path = require('path');
 const app = express();
 const axios = require("axios");
 
-const API_TOKEN = "bbeafa2b-425e-40f2-b3d9-07002040db9f";
+
+const API_TOKEN = require('./token.js');
+
 const API_URL = "https://api.weather.yandex.ru/v1/forecast";
 
 async function getForecast({lat,lon}){

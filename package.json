@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "node ./src/server.js"
+    "serve": "node --experimental-modules ./src/server.js"
     
   },
   "eslintConfig": {
