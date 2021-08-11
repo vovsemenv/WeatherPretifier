@@ -12,6 +12,7 @@ function getMainForecast(lat=0,lon=0,setter){
     val.json().then(vao=>setter(vao));
   })
 
+  alert('lol')
 
 }
 
